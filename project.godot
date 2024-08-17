@@ -15,9 +15,17 @@ run/main_scene="res://Build.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Gmtk 2024"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/draggablesprite2d/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [rendering]
 
