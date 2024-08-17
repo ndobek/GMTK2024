@@ -1,18 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://brwpotiixc2gb"]
+[gd_scene load_steps=7 format=3 uid="uid://brwpotiixc2gb"]
 
+[ext_resource type="Script" path="res://Components/piston/Piston.gd" id="1_027sb"]
 [ext_resource type="Texture2D" uid="uid://dxh10lwupt1iw" path="res://Components/piston/pistonShaft.png" id="1_ulqsa"]
 [ext_resource type="Texture2D" uid="uid://ccpl7seffq68n" path="res://Components/piston/pistonBase.png" id="2_lhbc8"]
 [ext_resource type="Script" path="res://Components/BuildModeSwitcher.gd" id="3_pvyy0"]
 
-[node name="Piston" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cppyj"]
+size = Vector2(126, 127)
 
-[node name="Shaft" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihunk"]
+size = Vector2(128, 97)
+
+[node name="Piston" type="Node2D" node_paths=PackedStringArray("spring")]
+script = ExtResource("1_027sb")
+spring = NodePath("DampedSpringJoint2D")
+
+[node name="Shaft" type="RigidBody2D" parent="."]
+position = Vector2(1, -26)
+
+[node name="Shaft_Sprite" type="Sprite2D" parent="Shaft"]
 texture = ExtResource("1_ulqsa")
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shaft"]
+shape = SubResource("RectangleShape2D_cppyj")
+
+[node name="Base" type="StaticBody2D" parent="."]
+
+[node name="Base_Sprite" type="Sprite2D" parent="Base"]
 texture = ExtResource("2_lhbc8")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ihunk")
+
+[node name="ScaleModeOnly" type="Node2D" parent="."]
 script = ExtResource("3_pvyy0")
-BuildModeOnly = true
+
+[node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
+position = Vector2(0, 30.565)
+rotation = 3.14159
+node_a = NodePath("../Base")
+node_b = NodePath("../Shaft")
+length = 90.0
+initial_offset = 1.0
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2(0, -70.05)
+rotation = -3.14159
+node_a = NodePath("../Base")
+node_b = NodePath("../Shaft")
+length = 90.0
+initial_offset = 1.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(0, -70.135)
+rotation = 3.14159
+node_a = NodePath("../Base")
+node_b = NodePath("../Shaft")
+length = 90.0
+rest_length = 90.0
+stiffness = 1.0
+damping = 0.08
