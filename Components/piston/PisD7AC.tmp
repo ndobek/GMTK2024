@@ -25,7 +25,7 @@ texture = ExtResource("1_ulqsa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaft"]
 shape = SubResource("RectangleShape2D_cppyj")
 
-[node name="Base" type="RigidBody2D" parent="."]
+[node name="Base" type="StaticBody2D" parent="."]
 input_pickable = true
 
 [node name="Base_Sprite" type="Sprite2D" parent="Base"]
@@ -57,14 +57,14 @@ length = 90.0
 initial_offset = 1.0
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
-position = Vector2(0, 2.42)
+position = Vector2(0, -25.9)
 rotation = 3.14159
-scale = Vector2(1.00367, 1.00878)
 node_a = NodePath("../Base")
 node_b = NodePath("../Shaft")
-length = 190.0
-stiffness = 64.0
-damping = 0.01
+length = 160.0
+rest_length = 200.0
+stiffness = 0.1
+damping = 16.0
 
 [connection signal="input_event" from="Shaft" to="." method="ToggleEvent"]
 [connection signal="input_event" from="Base" to="." method="ToggleEvent"]

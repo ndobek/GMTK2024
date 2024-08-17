@@ -38,4 +38,4 @@ script = ExtResource("6_po0iu")
 
 [node name="Piston" parent="." instance=ExtResource("1_wb1y5")]
 position = Vector2(-78, -363)
-rotation = 3.11874
+rotation = 2.20076
