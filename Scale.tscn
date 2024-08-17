@@ -1,10 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://vmntpsccoxhv"]
 
-[ext_resource type="PackedScene" uid="uid://dgl88ihykg3bg" path="res://Payload.tscn" id="1_7orn3"]
+[ext_resource type="PackedScene" uid="uid://brwpotiixc2gb" path="res://Components/piston/Piston.tscn" id="1_wb1y5"]
 
 [node name="Scale" type="Node2D"]
 
-[node name="Player" type="Node2D" parent="."]
-
-[node name="Payload" parent="Player" instance=ExtResource("1_7orn3")]
-position = Vector2(546, 421)
+[node name="Piston" parent="." instance=ExtResource("1_wb1y5")]
+position = Vector2(452, 332)

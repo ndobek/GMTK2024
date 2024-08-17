@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://brwpotiixc2gb"]
+
+[ext_resource type="Texture2D" uid="uid://dxh10lwupt1iw" path="res://Components/piston/pistonShaft.png" id="1_ulqsa"]
+[ext_resource type="Texture2D" uid="uid://ccpl7seffq68n" path="res://Components/piston/pistonBase.png" id="2_lhbc8"]
+[ext_resource type="Script" path="res://Components/BuildModeSwitcher.gd" id="3_pvyy0"]
+
+[node name="Piston" type="Node2D"]
+
+[node name="Shaft" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_ulqsa")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_lhbc8")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_pvyy0")
+BuildModeOnly = true

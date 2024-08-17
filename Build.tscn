@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://5hch1lxpmqqn"]
 
-[ext_resource type="PackedScene" uid="uid://dgl88ihykg3bg" path="res://Payload.tscn" id="1_47mfh"]
+[ext_resource type="PackedScene" uid="uid://brwpotiixc2gb" path="res://Components/piston/Piston.tscn" id="1_mk28q"]
 
 [node name="Build" type="Node2D"]
 
 [node name="Player" type="Node2D" parent="."]
 
-[node name="Payload" parent="Player" instance=ExtResource("1_47mfh")]
-position = Vector2(546, 421)
+[node name="Piston" parent="." instance=ExtResource("1_mk28q")]
+position = Vector2(501, 306)
