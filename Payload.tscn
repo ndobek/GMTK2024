@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgl88ihykg3bg"]
+
+[ext_resource type="PackedScene" uid="uid://c2uedb2o4j5t1" path="res://component.tscn" id="1_clrme"]
+
+[node name="Payload" type="Node2D"]
+
+[node name="Component" parent="." instance=ExtResource("1_clrme")]
+
+[editable path="Component"]
